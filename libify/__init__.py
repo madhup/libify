@@ -22,16 +22,15 @@ def exporter(global_vars):
                                                    'file': f.name}))
 
 
-def importer(global_vars, nbaddr=None, timeout=0, res=None):
+def importer(global_vars, nbaddr='', timeout=0, config=None):
   
-  if nbaddr is None:
-    assert res is not None, 'Either "nbaddr" or "res" needs to be specified'
+  if nbaddr:
+    config = json.loads(global_vars['dbutils'].notebook.run(nbaddr, timeout))
   else:
-    res = global_vars['dbutils'].notebook.run(nbaddr, timeout)
-  res = json.loads(res)
+    assert config is not None, 'Either "nbaddr" or "config" has to be specified'
 
-  with open(res['file'], 'rb') as f:
-    defs = Fernet(res['key'].encode(enc)).decrypt(f.read()).decode(enc)
+  with open(config['file'], 'rb') as f:
+    defs = Fernet(config['key'].encode(enc)).decrypt(f.read()).decode(enc)
 
   with tempfile.NamedTemporaryFile('w') as tf:
     tf.write('patch_globals = lambda x: ' + patch + '\n' + defs)
