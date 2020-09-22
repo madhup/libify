@@ -18,5 +18,5 @@ setup(name='libify',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.5',
     zip_safe=False)
