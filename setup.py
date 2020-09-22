@@ -1,10 +1,11 @@
 from setuptools import setup
 
+
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(name='libify',
-      version='0.77',
+      version='0.78',
       author='Madhup Sukoon',
       author_email='29144316+vagrantism@users.noreply.github.com',
       description='Import Databricks notebooks as libraries/modules',

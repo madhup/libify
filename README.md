@@ -1,5 +1,5 @@
 # Libify
-
+Libify makes it easy to import notebooks in Databricks. Notebook imports can also be nested to create complex workflows easily. Supports Databricks Runtime Version 5.5 and above.
 
 <details>
   <summary><strong>Installation</strong></summary>
