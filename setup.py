@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(name='libify',
-      version='0.78',
+      version='0.79',
       author='Madhup Sukoon',
       author_email='29144316+vagrantism@users.noreply.github.com',
       description='Import Databricks notebooks as libraries/modules',
@@ -20,4 +20,7 @@ setup(name='libify',
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.5',
+    install_requires=[
+      'cryptography>=37.0.2',
+    ],
     zip_safe=False)
